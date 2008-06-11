@@ -1,0 +1,30 @@
+<p>
+  <b>Name:</b>
+  <%=h @song.name %>
+</p>
+
+<p>
+  <b>Length:</b>
+  <%=h @song.length %>
+</p>
+
+<p>
+  <b>Album:</b>
+  <%= link_to @song.album.title, @song.album %>
+</p>
+
+<p>
+  <b>Song:</b>
+
+	<div class="audio">
+	 <object autoplay="false" data="<%= h @song.mp3 %>" height="40" type="audio/mpeg">
+	  <param name = 'src' value = '<%= h @song.mp3 %>' />
+	 </object>
+	</div>
+
+
+</p>
+
+
+<%= link_to 'Edit', edit_song_path(@song) %> |
+<%= link_to 'Back', songs_path %>
