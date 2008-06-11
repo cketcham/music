@@ -32,6 +32,10 @@ class Song < ActiveRecord::Base
     Mp3Info.open(self.file_name)
   end
   
+  def hash
+    Digest::MD5.hexdigest(File.read(self.file_name))
+  end
+  
   # write the @file_data data content to disk,
   # using the MP3_STORAGE_PATH constant.
   # saves the file with the filename of the model id
@@ -61,6 +65,15 @@ class Song < ActiveRecord::Base
     self.album=Album.find_by_title(mp3info.tag.album)
     if(self.album.nil?) 
       self.album=Album.create('title' => mp3info.tag.album , 'year' => mp3info.tag.year)
+    end
+  end
+  
+  #determines if this song is identical to another
+  #using the md5 hash
+  def identical?
+    #Song.first.attributes.each { |v,k| Song.find(:all, :conditions => [" #{v} like ?", "%blah%"])}
+    Song.find(:all, :conditions => ["name = ? or length = ?", "#{self.name}", self.length]) do |x| 
+      x.hash == self.hash
     end
   end
   

@@ -36,13 +36,17 @@ class SongsController < ApplicationController
   def edit
     @song = Song.find(params[:id])
   end
-
+  
   # POST /songs
   # POST /songs.xml
   def create
     @song = Song.new(params[:song])
-    
+
     @song.set_info(params[:song][:mp3].path)
+
+    if @song.identical?
+      redirect_to :action => "show", :id => @song.identical? and return
+    end
 
     respond_to do |format|
       if @song.save
