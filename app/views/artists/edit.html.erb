@@ -2,10 +2,15 @@
 
 <% form_for(@artist) do |f| %>
   <%= f.error_messages %>
-
-  <p>
-    <%= f.submit "Update" %>
-  </p>
+	<ul>
+	  <li>
+	    <%= f.label :name %><br />
+	    <%= f.text_field :name %>
+	  </li>
+	  <li>
+	    <%= f.submit "Update" %>
+	  </li>
+	</ul>
 <% end %>
 
 <%= link_to 'Show', @artist %> |

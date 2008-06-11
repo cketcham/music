@@ -2,18 +2,19 @@
 
 <% form_for(@album) do |f| %>
   <%= f.error_messages %>
-
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :year %><br />
-    <%= f.text_field :year %>
-  </p>
-  <p>
-    <%= f.submit "Update" %>
-  </p>
+	<ul>
+	  <li>
+	    <%= f.label :title %><br />
+	    <%= f.text_field :title %>
+	  </li>
+	  <li>
+	    <%= f.label :year %><br />
+	    <%= f.text_field :year %>
+	  </li>
+	  <li>
+	    <%= f.submit "Update" %>
+	  </li>
+	</ul>
 <% end %>
 
 <%= link_to 'Show', @album %> |

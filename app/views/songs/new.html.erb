@@ -3,11 +3,10 @@
 <% form_for @song , :html => { :multipart => true } do |f| %>
   <%= f.error_messages %>
 
-
-    <%= f.file_field :mp3 %>
-  <p>
-    <%= f.submit "Create" %>
-  </p>
+	<ul>
+    <li><%= f.file_field :mp3 %></li>
+    <li><%= f.submit "Create" %></li>
+	</ul>
 <% end %>
 
 <%= link_to 'Back', songs_path %>

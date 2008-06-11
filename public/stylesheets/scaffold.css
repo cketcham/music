@@ -23,14 +23,18 @@ h1 {
 }
 
 ul {
-	margin: 0px auto 40px auto;
 	height: 100px;
 	background-color: #d2e4ff;
 	padding: 20px;
+	border-bottom: solid 1px #ccc;
 }
 
 li {
 	display: block;
+}
+
+ul:hover {
+  background-color: #6498cc;
 }
 
 a { color: #000; 	text-decoration: none;}

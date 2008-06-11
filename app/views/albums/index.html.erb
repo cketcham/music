@@ -2,10 +2,7 @@
 
 <% for album in @albums %>
 	<a href="/albums/<%= album.id  %>">
-  	<ul>
-	    <li><%=h album.title %></li>
-	    <li><%=h album.year %></li>
-	  </ul>
+			<%= render :partial => "album", :locals => { :album => album } %>
 	</a>
 <% end %>
 
