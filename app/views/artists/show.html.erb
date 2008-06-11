@@ -1,0 +1,12 @@
+<h1><%=h @artist.name %></h1>
+
+
+<% for album in @artist.albums %>
+	<a href="/albums/<%= album.id %>">
+		<%= render :partial => "albums/album", :locals => { :album => album } %>
+	</a>
+<% end %>
+
+
+<%= link_to 'Edit', edit_artist_path(@artist) %> |
+<%= link_to 'Back', artists_path %>

@@ -1,0 +1,14 @@
+
+	<%= link_to_function "
+<ul>
+	<li>#{song.name}</li>
+	<li>#{song.artist.name}</li>
+	<li>#{song.length}</li>
+	<li>#{song.album.title}</li>
+	<div id=\"mp3object\"></div>
+</ul>", player_event(:playpause, :player => song.id )%>
+
+
+<div style="height:0px;">
+<%= mp3_player({:file => song.mp3}, :id => song.id, :height => 0, :width => 0) %>
+</div>

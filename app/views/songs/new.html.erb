@@ -1,12 +1,10 @@
-<h1>New song</h1>
+<h1>Upload song</h1>
 
 <% form_for @song , :html => { :multipart => true } do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.label 'File' %><br />
+
     <%= f.file_field :mp3 %>
-  </p>
   <p>
     <%= f.submit "Create" %>
   </p>

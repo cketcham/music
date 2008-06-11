@@ -2,6 +2,7 @@ require "ftools"
 require "mp3info"
 class Song < ActiveRecord::Base
   belongs_to :album
+  belongs_to :artist
   
   
   # run write_file after save to db
@@ -62,9 +63,15 @@ class Song < ActiveRecord::Base
     mp3info = Mp3Info.open(file)
     self.length=mp3info.length
     self.name=mp3info.tag.title
+    
+    self.artist=Artist.find_by_name(mp3info.tag.artist)
+    if(self.artist.nil?)
+      self.artist=Artist.create('name' => mp3info.tag.artist)
+    end
+    
     self.album=Album.find_by_title(mp3info.tag.album)
     if(self.album.nil?) 
-      self.album=Album.create('title' => mp3info.tag.album , 'year' => mp3info.tag.year)
+      self.album=Album.create('title' => mp3info.tag.album , 'year' => mp3info.tag.year, 'artist' => self.artist)
     end
   end
   

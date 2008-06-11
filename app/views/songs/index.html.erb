@@ -1,23 +1,15 @@
-<h1>Listing songs</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Length</th>
-	<th>Album</th>
-  </tr>
+<h1>Songs</h1>
 
 <% for song in @songs %>
-  <tr>
-    <td><%=h song.name %></td>
-    <td><%=h song.length %></td>
-	<td><%=h song.album.title %></td>
-    <td><%= link_to 'Show', song %></td>
-    <td><%= link_to 'Edit', edit_song_path(song) %></td>
-    <td><%= link_to 'Destroy', song, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+  <a href="/songs/<%= song.id %>">
+	<ul>
+    	<li><%=h song.name %></li>
+    	<li><%=h song.length %></li>
+		<li><%=h song.album.title %></li>
+	</ul>
+  </a>
 <% end %>
-</table>
+
 
 <br />
 

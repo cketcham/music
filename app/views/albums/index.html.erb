@@ -1,22 +1,15 @@
-<h1>Listing albums</h1>
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Year</th>
-  </tr>
+<h1>Albums</h1>
 
 <% for album in @albums %>
-  <tr>
-    <td><%=h album.title %></td>
-    <td><%=h album.year %></td>
-    <td><%= link_to 'Show', album %></td>
-    <td><%= link_to 'Edit', edit_album_path(album) %></td>
-    <td><%= link_to 'Destroy', album, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+	<a href="/albums/<%= album.id  %>">
+  	<ul>
+	    <li><%=h album.title %></li>
+	    <li><%=h album.year %></li>
+	  </ul>
+	</a>
 <% end %>
-</table>
+
 
 <br />
 
-<%= link_to 'New album', new_album_path %>
+<% link_to 'New album', new_album_path %>

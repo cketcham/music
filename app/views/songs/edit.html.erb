@@ -3,14 +3,18 @@
 <% form_for(@song) do |f| %>
   <%= f.error_messages %>
 <% #maybe this will turn into a remove? %>
-  <p>
-    <%= f.label 'File' %><br />
-    <%= f.file_field :mp3 %>
-  </p>
-  <p>
-    <%= f.submit "Update" %>
-  </p>
+  <ul>
+	<li>
+    <%= f.label 'Name' %><br />
+    <%= f.text_field :name %>
+	</li>
+	<%= f.submit "Update" %>
+  </ul>
+
+    
+
 <% end %>
 
 <%= link_to 'Show', @song %> |
-<%= link_to 'Back', songs_path %>
+<%= link_to 'Back', songs_path %> |
+<%= link_to 'Destroy', @song, :confirm => 'Are you sure?', :method => :delete %>

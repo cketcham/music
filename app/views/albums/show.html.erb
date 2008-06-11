@@ -1,19 +1,10 @@
-<p>
-  <b>Title:</b>
-  <%=h @album.title %>
-</p>
+<h1><%=h @album.title %> (<%=h @album.year %>)</h1>
 
-<p>
-  <b>Year:</b>
-  <%=h @album.year %>
-</p>
 
-<p>
-	<b>Songs:</b><br>
-	<% for song in @album.songs %>
-		<%= link_to song.name, song %><br>
-	<% end %>
-</p>
+<% for song in @album.songs %>
+	<%= render :partial => "songs/song", :locals => { :song => song } %>
+<% end %>
+
 
 <%= link_to 'Edit', edit_album_path(@album) %> |
 <%= link_to 'Back', albums_path %>

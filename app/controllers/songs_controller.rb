@@ -44,9 +44,9 @@ class SongsController < ApplicationController
 
     @song.set_info(params[:song][:mp3].path)
 
-    if @song.identical?
-      redirect_to :action => "show", :id => @song.identical? and return
-    end
+    #if @song.identical?
+    #  redirect_to :action => "show", :id => @song.identical? and return
+    #end
 
     respond_to do |format|
       if @song.save
@@ -87,5 +87,10 @@ class SongsController < ApplicationController
       format.html { redirect_to(songs_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  def add_mp3_object
+    @song = Song.find(params[:id])
+    render :partial => "song", :locals => { :song => @song }
   end
 end
