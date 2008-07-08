@@ -19,12 +19,21 @@ class UploadController < ApplicationController
     end
   end
   
+  def fix_tags
+    @song = Song.new
+    @song.mp3=params[:upload][:file]
+    @song.set_info(params[:upload][:file].path)
+  end
+  
   def make_song(file)
     #make the song
     @song = Song.new
     @song.mp3=file
     @song.set_info(file.path)
-    @song.save
+    if not @song.save
+      #should force you to fix the tags in the window
+      flash[:notice] = "Fix the tags before you upload. using itunes or the like"
+    end
   end
   
 end

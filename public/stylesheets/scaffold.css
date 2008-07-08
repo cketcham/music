@@ -22,6 +22,19 @@ h1 {
     position: relative;
 }
 
+#option {
+	height: 22px;
+	background-color: #d2e4ff;
+	padding: 20px;
+	border-bottom: solid 1px #ccc;
+	display: block;
+	text-align: center;
+}
+
+#option:hover {
+	background-color: #6498cc;
+}
+
 ul {
 	height: 100px;
 	background-color: #d2e4ff;

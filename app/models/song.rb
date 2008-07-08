@@ -4,12 +4,40 @@ class Song < ActiveRecord::Base
   belongs_to :album
   belongs_to :artist
   
+  validates_presence_of :name, :on => :create, :message => "can't be blank"
+  validates_presence_of :artist, :on => :create, :message => "can't be blank"
+  validates_presence_of :album, :on => :create, :message => "can't be blank"
   
   # run write_file after save to db
   after_save :write_file
 
   # run delete_file method after removal from db
+  # TODO:need to delete the artist and album as well
   after_destroy :delete_file
+  
+  def artist_name
+    self.artist.name
+  end
+  
+  def artist_name=(name)
+    a=Artist.find_by_name(name)
+    if a.nil?
+      a=Artist.create('name' => name)
+    end
+    self.artist=a
+  end
+  
+  def album_title
+    self.album.title
+  end
+  
+  def album_title=(title)
+    a=Album.find_by_title(title)
+    if a.nil?
+      a=Album.create('title' => title)
+    end
+    self.album=a
+  end
   
   # setter for form file field "mp3" 
   # grabs the data and sets it to an instance variable.

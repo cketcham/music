@@ -1,16 +1,23 @@
-<h1>Songs</h1>
+<a href="/songs/random">
+	<div id="option">
+  	play random songs
+	</div>
+</a>
+
+<a href="/upload">
+	<div id="option">
+  	upload songs
+	</div>
+</a>
+
+<br><br>
 
 <% for song in @songs %>
   <a href="/songs/<%= song.id %>">
 	<ul>
     	<li><%=h song.name %></li>
-    	<li><%=h song.length %></li>
+    	<li><%=h song.artist.name %></li>
 		<li><%=h song.album.title %></li>
 	</ul>
   </a>
 <% end %>
-
-
-<br />
-
-<%= link_to 'New song', new_song_path %>

@@ -1,13 +1,20 @@
 <h1>Upload</h1>
 
-upload a song, or tar.gz or zip file
+
+<a href="/upload">
+	<div id="option">
+		upload a song, or tar.gz or zip file
+	</div>
+</a>
+
+<br><br>
 
 <% form_for :upload, :html => { :multipart => true } do |f| %>
   <%= f.error_messages %>
 
 	<ul>
     <li><%= f.file_field :file %></li>
-    <li><%= f.submit "Create" %></li>
+    <li><%= f.submit "Upload" %></li>
 	</ul>
 <% end %>
 
