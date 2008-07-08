@@ -1,3 +1,14 @@
+<script type="text/javascript">
+function getUpdate(typ,pr1,pr2,swf) { 
+  if(typ == 'state' && pr1 == 3) { 
+		window.location.href = "/songs/random";
+	alert("finished playing song");
+	 }
+};
+</script>
+
+
+
 
 	<%= link_to_function "
 <ul>
@@ -9,6 +20,5 @@
 </ul>", player_event(:playpause, :player => song.id )%>
 
 
-<div style="height:0px;">
-<%= mp3_player({:file => song.mp3}, :id => song.id, :height => 0, :width => 0) %>
-</div>
+
+<%= mp3_player({:file => song.mp3}, :id => song.id, :height => '20') %>

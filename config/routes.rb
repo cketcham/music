@@ -2,6 +2,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :artists
 
   map.resources :albums
+  
+  
+  map.connect 'songs/random', :controller => 'songs', :action => 'random'
 
   map.resources :songs
 

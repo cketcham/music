@@ -20,6 +20,13 @@ class SongsController < ApplicationController
       format.xml  { render :xml => @song }
     end
   end
+  
+  # GET /songs/random
+  # GET /songs/random.xml
+  def random
+    @song = Song.find((rand Song.count)+1)
+    render :action => 'show', :id => @song.id
+  end
 
   # GET /songs/new
   # GET /songs/new.xml
@@ -93,4 +100,5 @@ class SongsController < ApplicationController
     @song = Song.find(params[:id])
     render :partial => "song", :locals => { :song => @song }
   end
+  
 end

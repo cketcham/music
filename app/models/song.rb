@@ -11,7 +11,6 @@ class Song < ActiveRecord::Base
   # run delete_file method after removal from db
   after_destroy :delete_file
   
-  
   # setter for form file field "mp3" 
   # grabs the data and sets it to an instance variable.
   # we need this so the model is in db before file save,
