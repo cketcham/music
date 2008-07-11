@@ -8,7 +8,8 @@ function getUpdate(typ,pr1,pr2,swf) {
 };
 </script>
 
-<%= render :partial => 'song', :locals => { :song => @song } %>
+<%= render :partial => 'song', :locals => { :song => @song, :autostart => true } %>
+
 
 
 <%= link_to 'Edit', edit_song_path(@song) %> |

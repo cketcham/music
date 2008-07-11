@@ -1,6 +1,6 @@
 <h1><%=h @song.name %></h1>
 
-<%= render :partial => 'song', :locals => { :song => @song } %>
+<%= render :partial => 'song', :locals => { :song => @song, :autostart => true } %>
 
 
 <%= link_to 'Edit', edit_song_path(@song) %> |
