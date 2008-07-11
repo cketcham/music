@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.connect '', :controller => 'songs', :action => 'index'
+  
   map.resources :artists
 
   map.resources :albums
