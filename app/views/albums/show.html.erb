@@ -1,25 +1,19 @@
 <script type="text/javascript">
 function getUpdate(typ,pr1,pr2,swf) { 
-  if(typ == 'item') { alert('the current state is: '+pr1); }
+  if(typ == 'state' && pr1 == 3) { 
+		<%# TODO:make it play the next thing
+		player_event(:playpause, :player => "2" ) %>
+	 }
 };
 </script>
 
-<% def play(song) %>
-	<% if @current_song != song %>
-		<% player_event(:load, {:file => song.mp3}) + player_event(:playpause) -%>
-		<% @current_song = song %>
-	<% else %>
-		<% player_event(:playpause) %>
-	<% end %>
-<% end %>
-
 <h1><%=h @album.title %> (<%=h @album.year %>)</h1>
 
-<%= media_player(:file => @album.songs.first.mp3) %>
+<%# media_player(:file => @album.songs.first.mp3) %>
 
 <% for song in @album.songs %>
-	<%# render :partial => "songs/song", :locals => { :song => song } %>
-	<%= link_to_function 'load song', play(song) %>
+	<%= render :partial => "songs/song", :locals => { :song => song } %>
+
 	
 <% end %>
 

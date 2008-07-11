@@ -25,7 +25,6 @@ class SongsController < ApplicationController
   # GET /songs/random.xml
   def random
     @song = Song.find((rand Song.count)+1)
-    render :action => 'show', :id => @song.id
   end
 
   # GET /songs/new
@@ -41,8 +40,8 @@ class SongsController < ApplicationController
 
   # GET /songs/1/edit
   def edit
-      @song = Song.find(params[:id])
-    end
+    @song = Song.find(params[:id])
+  end
   
   # POST /songs
   # POST /songs.xml

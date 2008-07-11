@@ -83,7 +83,11 @@ class Song < ActiveRecord::Base
   
   # just gets the extension of uploaded file
   def extension
-    @file_data.original_filename.split(".").last
+    begin
+      @file_data.original_filename.split(".").last
+    rescue
+       @file_data.path.split(".").last
+    end
   end
   
   def set_info(file)

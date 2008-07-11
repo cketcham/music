@@ -1,24 +1,16 @@
-<script type="text/javascript">
-function getUpdate(typ,pr1,pr2,swf) { 
-  if(typ == 'state' && pr1 == 3) { 
-		window.location.href = "/songs/random";
-	alert("finished playing song");
-	 }
-};
-</script>
-
-
+<%# TODO make the player tell me when it is playing. 
+ maybe it should stop all other players if it is starting %>
 
 
 	<%= link_to_function "
 <ul>
 	<li>#{song.name}</li>
 	<li>#{song.artist.name}</li>
-	<li>#{song.length}</li>
 	<li>#{song.album.title}</li>
 	<div id=\"mp3object\"></div>
-</ul>", player_event(:playpause, :player => song.id )%>
+</ul>", player_event(:playpause, :player => song.id ) %>
 
 
-
+<div style="margin:-30px 0px 0px 0px;padding:0px 0px 30px 20px;">
 <%= mp3_player({:file => song.mp3}, :id => song.id, :height => '20') %>
+</div>
