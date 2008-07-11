@@ -1,16 +1,23 @@
 <%# TODO make the player tell me when it is playing. 
- maybe it should stop all other players if it is starting %>
+ maybe it should stop all other players if it is starting
+ and why doesn't the link take up the whole thing? %>
 
 
-	<%= link_to_function "
-<ul>
-	<li>#{song.name}</li>
-	<li>#{song.artist.name}</li>
-	<li>#{song.album.title}</li>
-	<div id=\"mp3object\"></div>
-</ul>", player_event(:playpause, :player => song.id ) %>
+
+<%= link_to_function "
+	<div class='left'>
+		<ul>
+			<li>#{song.name}</li>
+			<li>#{song.artist.name}</li>
+			<li>#{song.album.title}</li>
+			<li><br></li>
+			<li>	
+				<div id=\"mp3object\"></div> " + mp3_player({:file => song.mp3, :autostart => autostart}, :id => song.id, :height => '20') + "
+			</li>
+		</ul>
+	</div>
+", 
+player_event(:playpause, :player => song.id ) %>
 
 
-<div style="margin:-30px 0px 0px 0px;padding:0px 0px 30px 20px;">
-<%= mp3_player({:file => song.mp3, :autostart => autostart}, :id => song.id, :height => '20') %>
-</div>
+		

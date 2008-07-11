@@ -14,11 +14,12 @@
 
 <% form_for :upload, :html => { :multipart => true } do |f| %>
   <%= f.error_messages %>
-
+<div class="song left">
 	<ul>
     <li><%= f.file_field :file %></li>
     <li><%= f.submit "Upload" %></li>
 	</ul>
+</div>
 <% end %>
 
 <%= link_to 'Back', songs_path %>

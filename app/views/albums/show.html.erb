@@ -12,7 +12,9 @@ function getUpdate(typ,pr1,pr2,swf) {
 <%# media_player(:file => @album.songs.first.mp3) %>
 
 <% for song in @album.songs %>
-	<%= render :partial => "songs/song", :locals => { :song => song, :autostart => (song==@album.songs.first) } %>
+	<div class="song">
+		<%= render :partial => "songs/song", :locals => { :song => song, :autostart => (song==@album.songs.first) } %>
+	</div>
 
 	
 <% end %>

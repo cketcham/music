@@ -35,20 +35,32 @@ h1 {
 	background-color: #6498cc;
 }
 
-ul {
-	height: 100px;
+.song {
+	height: 140px;
 	background-color: #d2e4ff;
-	padding: 20px;
 	border-bottom: solid 1px #ccc;
+}
+
+.song:hover {
+	background-color: #6498cc;
+}
+
+.right ul {
+	padding:20px;
+	float: right;
+	text-align:right;
+	margin: -150px 0px 0px 0px;
+}
+
+.left ul {
+	height:100px;
+	padding:20px;
 }
 
 li {
 	display: block;
 }
 
-ul:hover {
-  background-color: #6498cc;
-}
 
 a { color: #000; 	text-decoration: none;}
 a:visited { color: #666; }

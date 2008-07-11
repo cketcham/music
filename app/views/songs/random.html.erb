@@ -8,8 +8,19 @@ function getUpdate(typ,pr1,pr2,swf) {
 };
 </script>
 
-<%= render :partial => 'song', :locals => { :song => @song, :autostart => true } %>
+<div class="song">
 
+<%= render :partial => 'song', :locals => { :song => @song, :autostart => true } %>
+	<div class="right">
+		<ul>
+			<li>
+			<h2>
+			<%= link_to 'skip ⇢', :action => 'random' %>
+			</h2>
+			</li>
+		</ul>
+	</div>
+</div>
 
 
 <%= link_to 'Edit', edit_song_path(@song) %> |

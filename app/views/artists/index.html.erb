@@ -1,8 +1,10 @@
 <% for artist in @artists %>
 	<a href="/artists/<%= artist.id  %>">
-  	<ul>
-	    <li><%=h artist.name %></li>
-	  </ul>
+		<div class="song left">
+  		<ul>
+		    <li><%=h artist.name %></li>
+		  </ul>
+		</div>
 	</a>
 <% end %>
 

@@ -14,10 +14,12 @@
 
 <% for song in @songs %>
   <a href="/songs/<%= song.id %>">
-	<ul>
-    	<li><%=h song.name %></li>
-    	<li><%=h song.artist.name %></li>
-		<li><%=h song.album.title %></li>
-	</ul>
+	<div class="song left">
+		<ul>
+	    	<li><%=h song.name %></li>
+	    	<li><%=h song.artist.name %></li>
+			<li><%=h song.album.title %></li>
+		</ul>
+	</div>
   </a>
 <% end %>
