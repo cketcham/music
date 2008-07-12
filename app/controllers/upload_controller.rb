@@ -25,6 +25,7 @@ class UploadController < ApplicationController
     elsif(@file.original_filename.split(".").last == "mp3")
       make_song(@file)
     end
+    redirect_to :controller => "songs"
   end
   
   
