@@ -11,8 +11,9 @@
 			<li>#{song.artist.name}</li>
 			<li>#{song.album.title}</li>
 			<li><br></li>
+			<li><br></li>
 			<li>	
-				<div id=\"mp3object\"></div> " + mp3_player({:file => song.mp3, :autostart => autostart}, :id => song.id, :height => '20') + "
+		" + mp3_player({:file => song.mp3, :autostart => autostart}, :id => song.id, :height => '20') + "
 			</li>
 		</ul>
 	</div>

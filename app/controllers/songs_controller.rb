@@ -2,7 +2,7 @@ class SongsController < ApplicationController
   # GET /songs
   # GET /songs.xml
   def index
-    @songs = Song.find(:all)
+    @songs = Song.find(:all, :order => 'created_at DESC')
 
     respond_to do |format|
       format.html # index.html.erb

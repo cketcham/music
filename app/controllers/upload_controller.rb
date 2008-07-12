@@ -27,6 +27,7 @@ class UploadController < ApplicationController
     end
   end
   
+  
   def fix_tags
     @song = Song.new
     @song.mp3=params[:upload][:file]
