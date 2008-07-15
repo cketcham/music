@@ -22,7 +22,7 @@ function getUpdate(typ,pr1,pr2,swf) {
 			<li>#{song.name}</li>
 			<li>#{song.artist.name}</li>
 			<li>#{song.album.title}</li>
-			<li>play count:#{song.play_count}</li>
+			<li>Play Count:#{song.play_count}</li>
 			<li><br></li>
 			<li>	
 		" + mp3_player({:file => song.mp3, :autostart => autostart}, :id => song.id, :height => '20') + "
