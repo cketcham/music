@@ -4,7 +4,6 @@
 
 <script type="text/javascript">
 function getUpdate(typ,pr1,pr2,swf) { 
-	alert(typ+" "+pr1+" "+pr2+" "+swf);
   if(typ == 'load' && pr1 == 100) { 
 		
 		<% song.play_count+=1 %>
@@ -23,7 +22,7 @@ function getUpdate(typ,pr1,pr2,swf) {
 			<li>#{song.name}</li>
 			<li>#{song.artist.name}</li>
 			<li>#{song.album.title}</li>
-			<li>#{song.play_count}</li>
+			<li>play count:#{song.play_count}</li>
 			<li><br></li>
 			<li>	
 		" + mp3_player({:file => song.mp3, :autostart => autostart}, :id => song.id, :height => '20') + "
