@@ -1,16 +1,8 @@
 <h1><%=h @song.name %></h1>
 
-<script type="text/javascript">
-function getUpdate(typ,pr1,pr2,swf) { 
-  if(typ == 'state' && pr1 == 3) { 
-		window.location.href = "/songs/random";
-	 }
-};
-</script>
-
 <div class="song">
 
-<%= render :partial => 'song', :locals => { :song => @song, :autostart => true } %>
+<%= render :partial => 'song', :locals => { :song => @song, :autostart => true, :onend => "window.location.href = \"/songs/random\";" } %>
 	<div class="right">
 		<ul>
 			<li>

@@ -2,6 +2,19 @@
  maybe it should stop all other players if it is starting
  and why doesn't the link take up the whole thing? %>
 
+<script type="text/javascript">
+function getUpdate(typ,pr1,pr2,swf) { 
+	alert(typ+" "+pr1+" "+pr2+" "+swf);
+  if(typ == 'load' && pr1 == 100) { 
+		
+		<% song.play_count+=1 %>
+		<% song.save %>
+	 }
+	if(typ == 'state' && pr1 == 3) { 
+		<%= onend %>
+	 }
+};
+</script>
 
 
 <%= link_to_function "
@@ -10,7 +23,7 @@
 			<li>#{song.name}</li>
 			<li>#{song.artist.name}</li>
 			<li>#{song.album.title}</li>
-			<li><br></li>
+			<li>#{song.play_count}</li>
 			<li><br></li>
 			<li>	
 		" + mp3_player({:file => song.mp3, :autostart => autostart}, :id => song.id, :height => '20') + "

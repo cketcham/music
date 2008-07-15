@@ -1,19 +1,12 @@
-<script type="text/javascript">
-function getUpdate(typ,pr1,pr2,swf) { 
-  if(typ == 'state' && pr1 == 3) { 
-		<%# TODO:make it play the next thing
-		player_event(:playpause, :player => "2" ) %>
-	 }
-};
-</script>
+
 
 <h1><%=h @album.title %> (<%=h @album.year %>)</h1>
 
 <%# media_player(:file => @album.songs.first.mp3) %>
 
-<% for song in @album.songs %>
+<% @album.songs.each_with_index do |song, index| %>
 	<div class="song">
-		<%= render :partial => "songs/song", :locals => { :song => song, :autostart => (song==@album.songs.first) } %>
+		<%= render :partial => "songs/song", :locals => { :song => song, :autostart => (song==@album.songs.first), :onend => player_event(:playpause, :player => @album.songs[index].id ) } %>
 	</div>
 
 	
